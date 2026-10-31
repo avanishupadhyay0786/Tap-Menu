@@ -1,0 +1,983 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TapMenu | Discover Restaurants Near You</title>
+
+    <meta name="description"
+          content="Discover restaurants, explore digital menus and earn loyalty rewards with TapMenu.">
+
+    <meta name="theme-color" content="#111827">
+
+    <!-- CSS will be added in Step 2 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="main-header">
+
+        <a href="#" class="brand" aria-label="TapMenu home">
+            <span class="brand-icon">T</span>
+            <span>TapMenu</span>
+        </a>
+
+        <nav class="city-navigation" aria-label="Choose a city">
+            <a href="#restaurants" data-city="Lucknow">Lucknow</a>
+            <a href="#restaurants" data-city="Banda">Banda</a>
+            <a href="#restaurants" data-city="Atarra">Atarra</a>
+            <a href="#restaurants" data-city="Kanpur">Kanpur</a>
+            <a href="#restaurants" data-city="Ayodhya">Ayodhya</a>
+            <a href="#restaurants" data-city="Chitrakoot">Chitrakoot</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <button id="locationButton" class="location-button" type="button">
+                <span aria-hidden="true">⌖</span>
+                <span>Near Me</span>
+            </button>
+
+            <button id="restaurantLoginButton"
+                    class="restaurant-login-button"
+                    type="button">
+                Restaurant Login
+            </button>
+           
+<button id="customerGoogleSignIn" type="button">
+    Sign in with Google
+</button>
+        </div>
+
+    </header>
+
+    <!-- ================= MAIN WEBSITE ================= -->
+
+    <main id="customerWebsite">
+
+        <!-- HERO SECTION -->
+
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">DISCOVER • ORDER • REVISIT</p>
+
+                <h1>
+                    Your next favourite
+                    <span>restaurant awaits.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover restaurants around you, explore their menus
+                    and enjoy exclusive loyalty rewards with TapMenu.
+                </p>
+
+                <form id="restaurantSearchForm" class="search-bar">
+
+                    <label class="visually-hidden" for="citySearch">
+                        Select city
+                    </label>
+
+                    <select id="citySearch" name="city">
+                        <option value="">Choose a city</option>
+                        <option value="Lucknow">Lucknow</option>
+                        <option value="Banda">Banda</option>
+                        <option value="Atarra">Atarra</option>
+                        <option value="Kanpur">Kanpur</option>
+                        <option value="Ayodhya">Ayodhya</option>
+                        <option value="Chitrakoot">Chitrakoot</option>
+                    </select>
+
+                    <label class="visually-hidden" for="restaurantSearch">
+                        Search restaurants or dishes
+                    </label>
+
+                    <input
+                        type="search"
+                        id="restaurantSearch"
+                        name="search"
+                        placeholder="Restaurant, dish or cuisine..."
+                    >
+
+                    <button type="submit">Explore</button>
+
+                </form>
+
+                <p id="locationStatus" role="status" aria-live="polite">
+                    Choose a city or use Near Me to discover local places.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- CITY EXPLORER -->
+
+        <section class="section city-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">EXPLORE YOUR CITY</p>
+                    <h2>Where are you dining today?</h2>
+                </div>
+            </div>
+
+            <div class="city-grid">
+
+                <button class="city-card"
+                        type="button"
+                        data-city="Lucknow">
+                    <span class="city-emoji">🏙️</span>
+                    <span>Lucknow</span>
+                    <small>The City of Nawabs</small>
+                </button>
+
+                <button class="city-card"
+                        type="button"
+                        data-city="Banda">
+                    <span class="city-emoji">🌆</span>
+                    <span>Banda</span>
+                    <small>Explore local favourites</small>
+                </button>
+
+                <button class="city-card"
+                        type="button"
+                        data-city="Atarra">
+                    <span class="city-emoji">🍽️</span>
+                    <span>Atarra</span>
+                    <small>Find nearby eateries</small>
+                </button>
+
+                <button class="city-card"
+                        type="button"
+                        data-city="Kanpur">
+                    <span class="city-emoji">🌃</span>
+                    <span>Kanpur</span>
+                    <small>Discover food spots</small>
+                </button>
+
+                <button class="city-card"
+                        type="button"
+                        data-city="Ayodhya">
+                    <span class="city-emoji">🪔</span>
+                    <span>Ayodhya</span>
+                    <small>Discover local dining</small>
+                </button>
+
+                <button class="city-card"
+                        type="button"
+                        data-city="Chitrakoot">
+                    <span class="city-emoji">🌿</span>
+                    <span>Chitrakoot</span>
+                    <small>Explore local flavours</small>
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- CATEGORY FILTERS -->
+
+        <section class="section category-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">FIND YOUR CRAVING</p>
+                    <h2>Explore by category</h2>
+                </div>
+            </div>
+
+            <div class="category-list">
+
+                <button type="button"
+                        class="category-chip active"
+                        data-category="All">
+                    All Restaurants
+                </button>
+
+                <button type="button"
+                        class="category-chip"
+                        data-category="Cafe">
+                    ☕ Cafes
+                </button>
+
+                <button type="button"
+                        class="category-chip"
+                        data-category="Fast Food">
+                    🍔 Fast Food
+                </button>
+
+                <button type="button"
+                        class="category-chip"
+                        data-category="Indian">
+                    🍛 Indian
+                </button>
+
+                <button type="button"
+                        class="category-chip"
+                        data-category="Bakery">
+                    🥐 Bakery
+                </button>
+
+                <button type="button"
+                        class="category-chip"
+                        data-category="Family Restaurant">
+                    👨‍👩‍👧 Family Restaurants
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- RESTAURANT LIST -->
+
+        <section class="section restaurant-section" id="restaurants">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">HANDPICKED FOR YOU</p>
+                    <h2 id="restaurantSectionTitle">
+                        Popular restaurants
+                    </h2>
+                    <p id="restaurantResultCount">
+                        Discover restaurants in your favourite city.
+                    </p>
+                </div>
+
+                <label class="sort-control">
+                    <span>Sort by</span>
+
+                    <select id="restaurantSort">
+                        <option value="recommended">Recommended</option>
+                        <option value="name">Name</option>
+                        <option value="distance">Nearest first</option>
+                    </select>
+                </label>
+            </div>
+
+            <div id="restaurantGrid" class="restaurant-grid">
+
+                <!-- Restaurant cards will be loaded here from the database. -->
+
+                <div class="empty-state" id="restaurantEmptyState">
+                    <span aria-hidden="true">🍽️</span>
+                    <h3>Discover your next favourite place</h3>
+                    <p>
+                        Choose a city above. Restaurants registered on
+                        TapMenu will appear here.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- LOYALTY PROMOTION -->
+
+        <section class="loyalty-banner">
+
+            <div>
+                <p class="eyebrow">GOOD FOOD. GREAT REWARDS.</p>
+
+                <h2>Your favourite visits could earn you more.</h2>
+
+                <p>
+                    Join participating restaurants' loyalty programmes
+                    and unlock rewards with TapMenu NFC cards.
+                </p>
+            </div>
+
+            <div class="loyalty-visual" aria-hidden="true">
+                <span>💳</span>
+                <span>🎁</span>
+            </div>
+
+        </section>
+
+        <!-- RESTAURANT PARTNER CTA -->
+
+        <section class="section partner-section">
+
+            <p class="eyebrow">ARE YOU A RESTAURANT OWNER?</p>
+
+            <h2>Bring your restaurant online with TapMenu.</h2>
+
+            <p>
+                Showcase your dishes, manage prices and descriptions,
+                and bring customers back with digital loyalty rewards.
+            </p>
+
+            <button type="button"
+                    class="restaurant-login-button"
+                    id="partnerLoginButton">
+                Access Restaurant Dashboard
+            </button>
+
+        </section>
+
+    </main>
+    <!-- RESTAURANT DETAIL PAGE -->
+<section id="restaurantDetailPage" class="restaurant-detail-page" hidden>
+
+    <div class="detail-container">
+
+        <button type="button" id="backToRestaurantsButton" class="back-button">
+            ← Back to Restaurants
+        </button>
+
+        <div id="restaurantDetailContent">
+            <!-- Restaurant details will be rendered here -->
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- ================= RESTAURANT LOGIN ================= -->
+
+    <section id="restaurantLoginSection"
+             class="auth-section"
+             hidden>
+
+        <div class="auth-card">
+
+            <button type="button"
+                    class="back-button"
+                    id="backToWebsiteButton">
+                ← Back to TapMenu
+            </button>
+
+            <p class="eyebrow">TAPMENU FOR BUSINESS</p>
+
+            <h1>Restaurant Login</h1>
+
+            <p>
+                Sign in using the restaurant ID and password
+                provided by the TapMenu administrator.
+            </p>
+
+            <form id="restaurantLoginForm">
+
+                <label for="restaurantId">Restaurant ID</label>
+
+                <input
+                    type="text"
+                    id="restaurantId"
+                    name="restaurantId"
+                    placeholder="Enter your restaurant ID"
+                    autocomplete="username"
+                    required
+                >
+
+                <label for="restaurantPassword">Password</label>
+
+                <input
+                    type="password"
+                    id="restaurantPassword"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit" class="primary-button">
+                    Sign In
+                </button>
+
+                <p id="loginMessage"
+                   role="status"
+                   aria-live="polite"></p>
+
+            </form>
+
+            <p class="auth-note">
+                Restaurant accounts are created and authorised by TapMenu.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= RESTAURANT DASHBOARD ================= -->
+
+    <section id="restaurantDashboard" hidden>
+
+        <header class="dashboard-header">
+
+            <a href="#" class="brand">
+                <span class="brand-icon">T</span>
+                <span>TapMenu</span>
+                <span class="dashboard-label">BUSINESS</span>
+            </a>
+
+            <div class="dashboard-account">
+
+                <span id="dashboardRestaurantName">
+                    Restaurant Dashboard
+                </span>
+
+                <button type="button" id="restaurantLogoutButton">
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+        <div class="dashboard-layout">
+
+            <!-- SIDEBAR -->
+
+            <aside class="dashboard-sidebar">
+
+                <p class="sidebar-label">MANAGEMENT</p>
+
+                <button type="button"
+                        class="sidebar-link active"
+                        data-dashboard-tab="overview">
+                    Overview
+                </button>
+
+                <button type="button"
+                        class="sidebar-link"
+                        data-dashboard-tab="restaurant-profile">
+                    Restaurant Profile
+                </button>
+
+                <button type="button"
+                        class="sidebar-link"
+                        data-dashboard-tab="menu-management">
+                    Manage Menu
+                </button>
+
+                <button type="button"
+                        class="sidebar-link"
+                        data-dashboard-tab="customers">
+                    Customers & Streaks
+                </button>
+
+                <button type="button"
+                        class="sidebar-link"
+                        data-dashboard-tab="nfc-device">
+                    NFC Device
+                </button>
+
+                <button type="button"
+                        class="sidebar-link"
+                        data-dashboard-tab="qr-code">
+                    QR Code
+                </button>
+
+            </aside>
+
+            <!-- DASHBOARD CONTENT -->
+
+            <div class="dashboard-content">
+
+                <!-- OVERVIEW -->
+
+                <section class="dashboard-panel"
+                         data-dashboard-panel="overview">
+
+                    <p class="eyebrow">YOUR RESTAURANT</p>
+
+                    <h1>Dashboard Overview</h1>
+
+                    <p>
+                        Manage your restaurant, menu and customer loyalty
+                        programme from one place.
+                    </p>
+
+                    <div class="dashboard-stat-grid">
+
+                        <article class="dashboard-stat">
+                            <span>Menu Items</span>
+                            <strong id="menuItemCount">0</strong>
+                        </article>
+
+                        <article class="dashboard-stat">
+                            <span>Registered Customers</span>
+                            <strong id="customerCount">0</strong>
+                        </article>
+
+                        <article class="dashboard-stat">
+                            <span>Today's Visits</span>
+                            <strong id="todayVisitCount">0</strong>
+                        </article>
+
+                        <article class="dashboard-stat">
+                            <span>QR Visits</span>
+                            <strong id="qrScanCount">0</strong>
+                        </article>
+
+                        <article class="dashboard-stat">
+                            <span>Rewards Ready</span>
+                            <strong id="readyRewardCount">0</strong>
+                        </article>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <h2>Getting Started</h2>
+
+                        <p>
+                            Complete your restaurant profile, add your
+                            dishes and register customer loyalty cards.
+                        </p>
+
+                        <button type="button"
+                                data-open-tab="restaurant-profile">
+                            Set Up Restaurant
+                        </button>
+
+                    </div>
+
+                </section>
+
+                <!-- FIRST-TIME RESTAURANT SETUP -->
+
+                <section class="dashboard-panel"
+                         data-dashboard-panel="restaurant-profile"
+                         hidden>
+
+                    <h1>Restaurant Profile</h1>
+
+                    <p>
+                        Add your restaurant details so customers can
+                        discover you on the TapMenu website.
+                    </p>
+
+                    <form id="restaurantProfileForm">
+
+                        <label for="profileRestaurantName">
+                            Restaurant Name
+                        </label>
+
+                        <input
+                            id="profileRestaurantName"
+                            name="restaurantName"
+                            type="text"
+                            placeholder="e.g. The Food Corner"
+                            required
+                        >
+
+                        <label for="restaurantCategory">
+                            Restaurant Category
+                        </label>
+
+                        <select id="restaurantCategory"
+                                name="category"
+                                required>
+                            <option value="">Choose category</option>
+                            <option value="Cafe">Cafe</option>
+                            <option value="Fast Food">Fast Food</option>
+                            <option value="Indian">Indian Restaurant</option>
+                            <option value="Bakery">Bakery</option>
+                            <option value="Family Restaurant">
+                                Family Restaurant
+                            </option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                        <label for="restaurantCity">City</label>
+
+                        <select id="restaurantCity"
+                                name="city"
+                                required>
+                            <option value="">Select city</option>
+                            <option value="Lucknow">Lucknow</option>
+                            <option value="Banda">Banda</option>
+                            <option value="Atarra">Atarra</option>
+                            <option value="Kanpur">Kanpur</option>
+                            <option value="Ayodhya">Ayodhya</option>
+                            <option value="Chitrakoot">Chitrakoot</option>
+                        </select>
+
+                        <label for="restaurantAddress">
+                            Full Address
+                        </label>
+
+                        <textarea
+                            id="restaurantAddress"
+                            name="address"
+                            placeholder="Street, area, landmark"
+                            required
+                        ></textarea>
+
+                        <label for="restaurantDescription">
+                            About Your Restaurant
+                        </label>
+
+                        <textarea
+                            id="restaurantDescription"
+                            name="description"
+                            placeholder="Describe your food and experience"
+                            required
+                        ></textarea>
+
+                        <label for="restaurantPhone">
+                            Contact Number
+                        </label>
+
+                        <input
+                            id="restaurantPhone"
+                            name="phone"
+                            type="tel"
+                            placeholder="Restaurant contact number"
+                        >
+
+                        <label for="restaurantImages">
+                            Restaurant Images (up to 2)
+                        </label>
+
+                        <label for="restaurantImageUrl">Restaurant Image URL</label>
+<input
+    type="url"
+    id="restaurantImageUrl"
+    name="image"
+    placeholder="https://example.com/restaurant.jpg"
+>
+<p class="form-hint">
+    Paste a direct link to a restaurant image.
+</p>
+
+                        <p class="form-help">
+                            Images will be uploaded to image storage
+                            when backend integration is added.
+                        </p>
+
+                        <button type="submit" class="primary-button">
+                            Save Restaurant Profile
+                        </button>
+
+                        <p id="profileMessage"
+                           role="status"
+                           aria-live="polite"></p>
+                            <button type="button" id="publishRestaurantButton">
+                             Publish Restaurant
+                              </button>
+
+                        <p id="publishMessage"></p>
+                    </form>
+
+                </section>
+
+                <!-- MENU MANAGEMENT -->
+
+                <section class="dashboard-panel"
+                         data-dashboard-panel="menu-management"
+                         hidden>
+
+                    <h1>Manage Your Menu</h1>
+
+                    <p>
+                        Add dishes, set prices and provide descriptions.
+                    </p>
+
+                    <form id="menuItemForm">
+
+                        <label for="dishName">Dish Name</label>
+
+                        <input
+                            id="dishName"
+                            name="dishName"
+                            type="text"
+                            placeholder="e.g. Paneer Tikka"
+                            required
+                        >
+
+                        <label for="dishPrice">Price (₹)</label>
+
+                        <input
+                            id="dishPrice"
+                            name="price"
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            placeholder="199"
+                            required
+                        >
+
+                        <label for="dishDescription">
+                            Dish Description
+                        </label>
+
+                        <textarea
+                            id="dishDescription"
+                            name="description"
+                            placeholder="Ingredients, taste and serving size"
+                        ></textarea>
+
+                        <label for="dishCategory">
+                            Menu Category
+                        </label>
+
+                        <select id="dishCategory"
+                                name="category"
+                                required>
+                            <option value="">Choose category</option>
+                            <option value="Starters">Starters</option>
+                            <option value="Main Course">Main Course</option>
+                            <option value="Snacks">Snacks</option>
+                            <option value="Beverages">Beverages</option>
+                            <option value="Desserts">Desserts</option>
+                            <option value="Other">Other</option>
+                        </select>
+
+                        <label for="dishImages">
+                            Dish Images (up to 2)
+                        </label>
+<label for="dishImageUrl">Dish Image URL</label>
+<input
+    type="url"
+    id="dishImageUrl"
+    name="image"
+    placeholder="https://example.com/dish.jpg"
+>
+<p class="form-hint">
+    Paste a direct link to a dish image.
+</p>
+                        
+                        <label>
+                            <input
+                                type="checkbox"
+                                name="available"
+                                checked
+                            >
+                            Available for customers
+                        </label>
+
+                        <button type="submit" class="primary-button">
+                            Add Menu Item
+                        </button>
+
+                        <p id="menuMessage"
+                           role="status"
+                           aria-live="polite"></p>
+
+                    </form>
+
+                    <div class="dashboard-card">
+
+                        <h2>Your Menu Items</h2>
+
+                        <div id="menuItemList">
+                            No menu items added yet.
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- CUSTOMERS AND STREAKS -->
+
+                <section class="dashboard-panel"
+                         data-dashboard-panel="customers"
+                         hidden>
+
+                    <h1>Customers & Loyalty Streaks</h1>
+
+                    <p>
+                        Track eligible visits, reward progress and
+                        customer loyalty.
+                    </p>
+
+                    <div class="dashboard-card">
+
+                        <h2>Customer List</h2>
+
+                        <p>
+                            Customer records will appear here after
+                            the NFC reader records accepted visits.
+                        </p>
+
+                        <div class="table-wrapper">
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Customer ID</th>
+                                        <th>Total Visits</th>
+                                        <th>Current Streak</th>
+                                        <th>Reward Progress</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="customerTableBody">
+                                    <tr>
+                                        <td colspan="5">
+                                            No customer records yet.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- RESTAURANT QR CODE -->
+
+                <section class="dashboard-panel"
+                         data-dashboard-panel="qr-code"
+                         hidden>
+
+                    <h1>Restaurant QR Code</h1>
+
+                    <p>
+                        Put this QR code on your tables, counter or menu.
+                        Customers scan it to open your public restaurant page and menu.
+                    </p>
+
+                    <div class="dashboard-card restaurant-qr-card">
+
+                        <div class="restaurant-qr-preview">
+                            <canvas id="restaurantQrCanvas"
+                                    width="240"
+                                    height="240"
+                                    aria-label="QR code for the restaurant menu"
+                                    hidden></canvas>
+                            <p id="restaurantQrStatus" role="status" aria-live="polite">
+                                Loading your restaurant QR code...
+                            </p>
+                        </div>
+
+                        <div class="restaurant-qr-details">
+                            <label for="restaurantQrUrl">Customer link</label>
+                            <input id="restaurantQrUrl" type="url" readonly>
+
+                            <div class="restaurant-qr-actions">
+                                <button type="button" id="copyRestaurantQrLinkButton">
+                                    Copy Link
+                                </button>
+                                <button type="button"
+                                        class="primary-button"
+                                        id="downloadRestaurantQrButton">
+                                    Download QR Code
+                                </button>
+                            </div>
+
+                            <p id="qrScanTotal" role="status">
+                                QR visits will appear here.
+                            </p>
+
+                            <button type="button"
+                                    class="qr-refresh-button"
+                                    id="refreshQrScanCountButton">
+                                Refresh visit count
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <p class="qr-code-note">
+                        Publish your restaurant first. For printed codes, open this dashboard from your live website address; a localhost link only works on your development computer.
+                    </p>
+
+                </section>
+
+                <!-- NFC DEVICE -->
+
+                <section class="dashboard-panel"
+                         data-dashboard-panel="nfc-device"
+                         hidden>
+
+                    <h1>NFC Loyalty Device</h1>
+
+                    <p>
+                        View the connection status of your restaurant's
+                        TapMenu NFC reader.
+                    </p>
+
+                    <div class="dashboard-card">
+
+                        <h2>Reader Status</h2>
+
+                        <p id="nfcDeviceStatus">
+                            Device not connected yet.
+                        </p>
+
+                        <p>
+                            When the ESP32 reads a registered card,
+                            its visit will be validated by the backend.
+                        </p>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <h2>Loyalty Rules</h2>
+
+                        <label for="rewardThreshold">
+                            Visits required for a reward
+                        </label>
+
+                        <select id="rewardThreshold">
+                            <option value="5">5 visits</option>
+                            <option value="10">10 visits</option>
+                        </select>
+
+                        <label for="rewardDescription">
+                            Reward Description
+                        </label>
+
+                        <input
+                            id="rewardDescription"
+                            type="text"
+                            placeholder="e.g. One free coffee"
+                        >
+
+                        <button type="button" id="saveRewardSettings">
+                            Save Reward Settings
+                        </button>
+
+                        <p id="rewardSettingsMessage"
+                           role="status"></p>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="main-footer">
+
+        <a href="#" class="brand">
+            <span class="brand-icon">T</span>
+            <span>TapMenu</span>
+        </a>
+
+        <p>
+            Discover local restaurants. Explore menus. Enjoy rewards.
+        </p>
+
+        <p>
+            © <span id="currentYear">2026</span> TapMenu.
+            All rights reserved.
+        </p>
+
+    </footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.js"
+        onerror="this.onerror=null;this.src='https://unpkg.com/qrcode@1.5.4/build/qrcode.js';"></script>
+
+   
+    <script type="module" src="app.js"></script>
+</body>
+</html>
